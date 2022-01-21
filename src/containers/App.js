@@ -3,6 +3,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import './App.css';
 import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry';
 
 <link href="//db.onlinewebfonts.com/c/b593a614952261da06c53a02d1954f44?family=SEGA+LOGO+FONT" rel="stylesheet" type="text/css" />
 
@@ -42,7 +43,9 @@ class App extends Component {
                     <h1 className='f1'>robofriends</h1>
                     <SearchBox searchChange={this.onSearchChange} />
                     <Scroll>
-                        <CardList robots={filteredRobots} />
+                        <ErrorBoundry>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundry>
                     </Scroll>
                 </div>
             );
